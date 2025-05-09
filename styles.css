@@ -1,0 +1,349 @@
+/* Сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Цвета */
+:root {
+  --umka-purple: #7b6fcb;
+  --umka-yellow: #ffc72c;
+  --umka-bg: #fcfcfc;
+  --umka-dark: #333;
+  --umka-light-purple: #e6e3f7;
+}
+
+/* Базовые стили */
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: var(--umka-bg);
+  color: var(--umka-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Адаптивный контейнер */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Хедер и навигация */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--umka-purple);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--umka-yellow);
+}
+
+/* Главный экран */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--umka-bg);
+  position: relative;
+  padding-top: 100px;
+}
+
+.hero-bg-graphics {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url("hero-bg.svg") no-repeat center/cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-img img {
+  width: 350px;
+  max-width: 40vw;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(123, 111, 203, 0.1);
+}
+
+.hero-text {
+  margin-left: 40px;
+  text-align: left;
+}
+
+.umka-title {
+  font-size: 4rem;
+  color: var(--umka-purple);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.umka-subtitle {
+  background: var(--umka-purple);
+  color: #fff;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 24px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(123, 111, 203, 0.15);
+}
+
+/* Секции */
+section {
+  padding: 100px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Сетка услуг */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* О проекте */
+.about {
+  position: relative;
+  background: var(--umka-bg);
+  padding-top: 120px;
+}
+
+.about-bg-graphics {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url("about-bg.svg") no-repeat center/cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.about-img img {
+  width: 320px;
+  max-width: 35vw;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(123, 111, 203, 0.1);
+}
+
+.about-text {
+  margin-left: 40px;
+  max-width: 600px;
+}
+
+.about-number {
+  background: var(--umka-yellow);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(255, 199, 44, 0.15);
+}
+
+.about-title {
+  color: var(--umka-purple);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.about-highlight {
+  color: var(--umka-purple);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.about-highlight .yellow {
+  color: var(--umka-yellow);
+  font-weight: 700;
+}
+
+.about-logo {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(123, 111, 203, 0.15);
+}
+
+/* Футер */
+.footer {
+  background: var(--umka-purple);
+  color: #fff;
+  padding: 60px 0;
+  margin-top: 80px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .hero-content,
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img img,
+  .about-img img {
+    width: 220px;
+    max-width: 80vw;
+    margin-bottom: 24px;
+  }
+
+  .hero-text,
+  .about-text {
+    margin-left: 0;
+  }
+
+  .umka-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .umka-title {
+    font-size: 2.5rem;
+  }
+
+  .umka-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .umka-title {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .about-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .about-title,
+  .about-highlight {
+    font-size: 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
