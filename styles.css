@@ -17,7 +17,7 @@
 /* Базовые стили */
 body {
   font-family: "Montserrat", Arial, sans-serif;
-  background: var(--umka-bg);
+  background: var(--umka-purple);
   color: var(--umka-dark);
   line-height: 1.6;
   overflow-x: hidden;
@@ -37,7 +37,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--umka-purple);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   z-index: 1000;
 }

@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>UMKA Presentation</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<style>
 		.slide-img {
@@ -19,11 +20,11 @@
 		}
 
 		body {
-			background: #222;
+			background: #7b6fcb;
 		}
 
 		main {
-			background: #222;
+			/* background: #222; */
 			padding: 0;
 		}
 
@@ -39,184 +40,296 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			background: rgba(34, 34, 34, 0.98);
+			background: var(--umka-purple);
 			z-index: 1000;
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 		}
 
-		.header-container {
+		.header-menu-2rows {
 			max-width: 1200px;
 			margin: 0 auto;
 			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			flex-direction: column;
+			align-items: stretch;
 			padding: 0 24px;
-			height: 64px;
 		}
 
-		.logo {
-			color: #fff;
-			font-weight: 700;
-			font-size: 1.5rem;
-			letter-spacing: 2px;
-		}
-
-		.nav {
+		.menu-row {
 			display: flex;
-			align-items: center;
+			justify-content: center;
+			gap: 36px;
+			padding: 8px 0 0 0;
 		}
 
-		.nav-menu {
-			display: flex;
-			gap: 32px;
-			list-style: none;
+		.menu-row+.menu-row {
+			padding: 0 0 8px 0;
 		}
 
-		.nav-menu a {
+		.menu-row a {
 			color: #fff;
 			text-decoration: none;
 			font-weight: 500;
-			font-size: 1rem;
+			font-size: 1.08rem;
 			transition: color 0.2s;
+			padding: 6px 0;
+			letter-spacing: 0.5px;
 		}
 
-		.nav-menu a:hover {
+		.menu-row a:hover {
 			color: #FFC72C;
 		}
 
-		/* Burger styles */
-		.burger {
-			display: none;
-			position: relative;
-			width: 32px;
-			height: 32px;
-			cursor: pointer;
-			margin-left: 16px;
-			z-index: 1100;
-		}
-
-		.burger span {
-			position: absolute;
-			left: 4px;
-			right: 4px;
-			height: 4px;
-			background: #fff;
-			border-radius: 2px;
-			transition: 0.3s;
-		}
-
-		.burger span:nth-child(1) {
-			top: 7px;
-		}
-
-		.burger span:nth-child(2) {
-			top: 14px;
-		}
-
-		.burger span:nth-child(3) {
-			top: 21px;
-		}
-
-		.burger.open span:nth-child(1) {
-			top: 14px;
-			transform: rotate(45deg);
-		}
-
-		.burger.open span:nth-child(2) {
-			opacity: 0;
-		}
-
-		.burger.open span:nth-child(3) {
-			top: 14px;
-			transform: rotate(-45deg);
-		}
-
 		@media (max-width: 900px) {
-			.header-container {
+			.header-menu-2rows {
 				padding: 0 8px;
 			}
 
 			.slides-container {
 				padding: 8px 0;
 			}
+
+			.menu-row {
+				gap: 18px;
+			}
 		}
 
 		@media (max-width: 700px) {
-			.nav-menu {
-				position: absolute;
-				top: 64px;
-				right: 0;
-				background: #222;
-				flex-direction: column;
-				width: 100vw;
-				max-width: 320px;
-				gap: 0;
-				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-				display: none;
-			}
-
-			.nav-menu.open {
-				display: flex;
-			}
-
-			.nav-menu li {
-				border-bottom: 1px solid #333;
-				padding: 18px 24px;
+			.header {
+				height: auto;
+				padding: 10px 0;
+				position: relative;
 			}
 
 			.burger {
 				display: block;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+
+			.header-menu-2rows {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100vh;
+				background: var(--umka-purple);
+				padding: 60px 20px 20px;
+				transform: translateX(-100%);
+				transition: transform 0.3s ease-in-out;
+				z-index: 1000;
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+
+			.header-menu-2rows.open {
+				display: flex;
+				transform: translateX(0);
+			}
+
+			.menu-row {
+				flex-direction: column;
+				gap: 0;
+				align-items: center;
+				padding: 0;
+				width: 100%;
+			}
+
+			.menu-row a {
+				padding: 15px 0;
+				width: 100%;
+				text-align: center;
+				font-size: 1.2rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.menu-row a:last-child {
+				border-bottom: none;
+			}
+
+			.header-spacer {
+				height: 60px;
 			}
 		}
 
 		html {
 			scroll-behavior: smooth;
+			scroll-padding-top: 120px;
 		}
 
 		.header-spacer {
-			height: 64px;
+			height: 80px;
+		}
+
+		/* Footer contacts */
+		.footer-contacts {
+			display: flex;
+			justify-content: center;
+			gap: 32px;
+			margin-bottom: 12px;
+		}
+
+		.footer-contacts a,
+		.footer-contacts span {
+			color: #fff;
+			text-decoration: none;
+			font-size: 1.1rem;
+			display: flex;
+			align-items: center;
+			gap: 7px;
+			transition: color 0.2s;
+		}
+
+		.footer-contacts a:hover {
+			color: #FFC72C;
+		}
+
+		.footer-contacts i {
+			font-size: 1.2em;
+		}
+
+		/* Мобильное меню */
+		.burger {
+			display: none;
+			cursor: pointer;
+			padding: 15px;
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			z-index: 1001;
+			background: transparent;
+			border: none;
+			width: 30px;
+			height: 30px;
+		}
+
+		.burger-line {
+			width: 25px;
+			height: 3px;
+			background-color: #fff;
+			margin: 5px 0;
+			transition: 0.4s;
+			display: block;
+		}
+
+		.burger.open .burger-line:nth-child(1) {
+			transform: rotate(-45deg) translate(-5px, 6px);
+		}
+
+		.burger.open .burger-line:nth-child(2) {
+			opacity: 0;
+		}
+
+		.burger.open .burger-line:nth-child(3) {
+			transform: rotate(45deg) translate(-5px, -6px);
+		}
+
+		@media (max-width: 700px) {
+			.header {
+				height: auto;
+				padding: 10px 0;
+				position: relative;
+			}
+
+			.burger {
+				display: block;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+
+			.header-menu-2rows {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100vh;
+				background: var(--umka-purple);
+				padding: 60px 20px 20px;
+				transform: translateX(-100%);
+				transition: transform 0.3s ease-in-out;
+				z-index: 1000;
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+
+			.header-menu-2rows.open {
+				display: flex;
+				transform: translateX(0);
+			}
+
+			.menu-row {
+				flex-direction: column;
+				gap: 0;
+				align-items: center;
+				padding: 0;
+				width: 100%;
+			}
+
+			.menu-row a {
+				padding: 15px 0;
+				width: 100%;
+				text-align: center;
+				font-size: 1.2rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.menu-row a:last-child {
+				border-bottom: none;
+			}
+
+			.header-spacer {
+				height: 60px;
+			}
 		}
 	</style>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			const burger = document.querySelector('.burger');
-			const navMenu = document.querySelector('.nav-menu');
-			burger.addEventListener('click', function () {
-				navMenu.classList.toggle('open');
-				burger.classList.toggle('open');
-			});
-			// Закрытие меню при клике на ссылку
-			navMenu.querySelectorAll('a').forEach(link => {
-				link.addEventListener('click', () => {
-					navMenu.classList.remove('open');
-					burger.classList.remove('open');
+			const menu = document.querySelector('.header-menu-2rows');
+
+			if (burger && menu) {
+				burger.addEventListener('click', function () {
+					burger.classList.toggle('open');
+					menu.classList.toggle('open');
 				});
-			});
+
+				// Закрытие меню при клике на ссылку
+				menu.querySelectorAll('a').forEach(link => {
+					link.addEventListener('click', () => {
+						menu.classList.remove('open');
+						burger.classList.remove('open');
+					});
+				});
+			}
 		});
 	</script>
 </head>
 
 <body>
 	<header class="header">
-		<div class="header-container">
-			<div class="logo">UMKA</div>
-			<nav class="nav">
-				<ul class="nav-menu">
-					<li><a href="#slide1">Main</a></li>
-					<li><a href="#slide2">About</a></li>
-					<li><a href="#slide3">Education</a></li>
-					<li><a href="#slide4">Technologies</a></li>
-					<li><a href="#slide5">Solution</a></li>
-					<li><a href="#slide6">How it works</a></li>
-					<li><a href="#slide7">AI & UMKA</a></li>
-					<li><a href="#slide8">Market</a></li>
-				</ul>
-				<div class="burger" aria-label="Open menu" tabindex="0">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-			</nav>
+		<button class="burger" aria-label="Menu">
+			<span class="burger-line"></span>
+			<span class="burger-line"></span>
+			<span class="burger-line"></span>
+		</button>
+		<div class="header-menu-2rows">
+			<div class="menu-row">
+				<a href="#slide1">Main</a>
+				<a href="#slide3">Idea</a>
+				<a href="#slide6">Problem</a>
+				<a href="#slide7">Solution</a>
+				<a href="#slide8">Product Features</a>
+			</div>
+			<div class="menu-row">
+				<a href="#slide12">Market</a>
+				<a href="#slide17">Business Model</a>
+				<a href="#slide18">Go-To-Market-Strategy</a>
+				<a href="#slide23">Umka Token</a>
+				<a href="#slide24">Our Team</a>
+			</div>
 		</div>
 	</header>
 	<div class="header-spacer"></div>
@@ -253,14 +366,14 @@
 	</main>
 
 	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div class="footer-logo">UMKA</div>
-				<div class="footer-info">
-					<!-- Контент будет добавлен позже -->
-				</div>
-			</div>
+		<div class="footer-contacts">
+			<span title="Info"><i class="fa-solid fa-circle-info"></i></span>
+			<a href="mailto:umkaapp@mail.ru" title="Email"><i class="fa-solid fa-envelope"></i>umkaapp@mail.ru</a>
+			<a href="https://t.me/Svetlanapremier" target="_blank" title="Telegram"><i
+					class="fa-brands fa-telegram"></i>Svetlanapremier</a>
+			<a href="tel:+33769838811" title="Call"><i class="fa-solid fa-phone"></i>+33 7 69 83 88 11</a>
 		</div>
+		<div style="color: #fff; font-size: 0.95rem; text-align: center;">&copy; 2025 UMKA. All rights reserved.</div>
 	</footer>
 </body>
 
